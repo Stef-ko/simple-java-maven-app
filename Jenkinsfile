@@ -7,7 +7,8 @@ pipeline {
         stage('Build') { 
             steps {
                 withMaven {
-                    sh "mvn clean verify"
+                    sh 'mvn -v'
+                    sh 'mvn clean verify'
                 }
                 // sh 'mvn -B -DskipTests clean package' 
             }
