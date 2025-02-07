@@ -1,15 +1,18 @@
 pipeline {
     agent any
+
+    tools {
+        maven ' 3'
+    }
+
     options {
         skipStagesAfterUnstable()
     }
     stages {
         stage('Build') { 
             steps {
-                withMaven {
-                    sh 'mvn -v'
-                    sh 'mvn clean verify'
-                }
+                sh 'mvn -v'
+                sh 'mvn clean verify'
                 // sh 'mvn -B -DskipTests clean package' 
             }
         }
