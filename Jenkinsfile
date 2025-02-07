@@ -5,12 +5,12 @@ pipeline {
     }
     stages {
         stage('Build') { 
-            withMaven {
-                sh "mvn clean verify"
+            steps {
+                withMaven {
+                    sh "mvn clean verify"
+                }
+                // sh 'mvn -B -DskipTests clean package' 
             }
-            // steps {
-            //     sh 'mvn -B -DskipTests clean package' 
-            // }
         }
         // stage('Test') {
         //     steps {
